@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="signin-style.css">
+</head>
+<body>
+    
+    <div class="signin-container">
+        <h2>Sign In</h2>
+        <form id="signin-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Sign In</button>
+
+            <button id="signup-button">Go to Sign Up</button>
+            <script>
+                document.getElementById('signup-button').onclick = function() {
+                    window.location.href = 'signup.html'; // Replace 'index.html' with the actual filename of your sign-in page
+                };
+            </script>
+        </form>
+    </div>
+</body>
+</html>
