@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const MainLayout = styled.div`
-    padding: 2rem;
+    padding-left: 5rem;
     height: 100%;
     display: flex;
-    gap: 2rem;
+    gap: 10rem;
+    margin-left: 250px;
 `;
 
 export const InnerLayout = styled.div`

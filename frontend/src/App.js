@@ -27,4 +27,5 @@ const AppStyled = styled.div`
   background-color: #f0f2f5; /* Example styling */
 `;
 
+
 export default App;
