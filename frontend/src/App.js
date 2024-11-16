@@ -5,8 +5,16 @@ import Navigation from './Components/Navigation/Navigation';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Income from './Components/Income/Income';
 import { MainLayout } from './styles/Layouts'; // Ensure this import path is correct
+import { useGlobalContext } from './context/globalContext';
+
 
 function App() {
+
+  const global = useGlobalContext()
+  console.log(global);
+  
+
+
   return (
     <AppStyled>
       <Router>
