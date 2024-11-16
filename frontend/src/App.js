@@ -1,19 +1,24 @@
-import React from 'react';
+import React  from 'react';
+import bg from './img/bg.png'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import Navigation from './Components/Navigation/Navigation';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Income from './Components/Income/Income';
-import { MainLayout } from './styles/Layouts'; // Ensure this import path is correct
+import { MainLayout } from './styles/Layouts'; 
 import { useGlobalContext } from './context/globalContext';
+
 
 
 function App() {
 
+
   const global = useGlobalContext()
   console.log(global);
+
   
 
+ 
 
   return (
     <AppStyled>
@@ -31,8 +36,20 @@ function App() {
 }
 
 const AppStyled = styled.div`
-  display: flex;
-  background-color: #f0f2f5; /* Example styling */
+  height: 100vh;
+  background-image: url(${props => props.bg});
+  position: relative;
+  main{
+    flex: 1;
+    background: rgba(252, 246, 249, 0.78);
+    border: 3px solid #FFFFFF;
+    backdrop-filter: blur(4.5px);
+    border-radius: 32px;
+    overflow-x: hidden;
+    &::-webkit-scrollbar{
+      width: 0;
+    }
+  }
 `;
 
 

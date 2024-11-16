@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         font-family: 'Nunito', sans-serif;
         font-size: clamp(1rem, 1.5vw, 1.2rem);
-        background-color: #f0f2f5; /* Add a background color */
+        background-color: #f0f2f5; 
         color: rgba(34, 34, 96, 0.6);
         overflow: hidden;
     }
