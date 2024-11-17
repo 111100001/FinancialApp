@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="signin-style.css">
 </head>
 <body>
-    
     <div class="signin-container">
         <h2>Sign In</h2>
         <form id="signin-form">
@@ -20,14 +19,44 @@
                 <input type="password" id="password" name="password" required>
             </div>
             <button type="submit">Sign In</button>
-
-            <button id="signup-button">Go to Sign Up</button>
-            <script>
-                document.getElementById('signup-button').onclick = function() {
-                    window.location.href = 'signup.html'; // Replace 'index.html' with the actual filename of your sign-in page
-                };
-            </script>
+            <button type="button" id="signup-button">Go to Sign Up</button>
         </form>
     </div>
+
+    <script>
+        // Redirect to sign-up page
+        document.getElementById('signup-button').onclick = function () {
+            window.location.href = 'signup.html'; // Replace with your sign-up page URL
+        };
+
+        // Handle sign-in form submission
+        document.getElementById('signin-form').onsubmit = async function (e) {
+            e.preventDefault(); // Prevent default form submission behavior
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                // Send sign-in data to the backend
+                const response = await fetch('http://localhost:5000/signin', { // Replace with your backend URL
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Redirect to the app page on success
+                    window.location.href = data.redirect || 'http://localhost:3000'; // Replace with your app's URL
+                } else {
+                    alert(data.error || 'Sign-in failed'); // Show error message
+                }
+            } catch (error) {
+                console.error('Error signing in:', error);
+                alert('An error occurred. Please try again later.');
+            }
+        };
+    </script>
 </body>
 </html>
