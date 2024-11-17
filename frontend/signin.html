@@ -38,7 +38,7 @@
 
             try {
                 // Send sign-in data to the backend
-                const response = await fetch('http://localhost:5000/signin', { // Replace with your backend URL
+                const response = await fetch('/api/signin', { // Replace with your backend URL
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password }),
@@ -48,7 +48,7 @@
 
                 if (response.ok) {
                     // Redirect to the app page on success
-                    window.location.href = data.redirect || 'http://localhost:3000'; // Replace with your app's URL
+                    window.location.href = data.redirect || 'http://158.101.230.135:3000'; // Replace with your app's URL
                 } else {
                     alert(data.error || 'Sign-in failed'); // Show error message
                 }
