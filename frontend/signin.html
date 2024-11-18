@@ -24,21 +24,19 @@
     </div>
 
     <script>
-        // Redirect to sign-up page
         document.getElementById('signup-button').onclick = function () {
-            window.location.href = 'signup.html'; // Replace with your sign-up page URL
+            window.location.href = 'signup.html'; 
         };
 
-        // Handle sign-in form submission
         document.getElementById('signin-form').onsubmit = async function (e) {
-            e.preventDefault(); // Prevent default form submission behavior
+            e.preventDefault(); 
 
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
             try {
                 // Send sign-in data to the backend
-                const response = await fetch('/api/signin', { // Replace with your backend URL
+                const response = await fetch('/api/signin', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password }),
@@ -47,10 +45,10 @@
                 const data = await response.json();
 
                 if (response.ok) {
-                    // Redirect to the app page on success
-                    window.location.href = data.redirect || 'http://158.101.230.135:3000'; // Replace with your app's URL
+                    
+                    window.location.href = data.redirect || '/app/'; 
                 } else {
-                    alert(data.error || 'Sign-in failed'); // Show error message
+                    alert(data.error || 'Sign-in failed'); 
                 }
             } catch (error) {
                 console.error('Error signing in:', error);

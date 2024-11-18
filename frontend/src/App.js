@@ -28,6 +28,7 @@ function App() {
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/income" element={<Income />} />
+            <Route path="/" element={<Dashboard />} />
           </Routes>
         </MainLayout>
       </Router>

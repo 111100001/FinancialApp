@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react"
 import axios from 'axios'
 
 
-const BASE_URL = "http://localhost:5000/api/v1/";
+const BASE_URL = " http://158.101.230.135/api/";
 
 
 const GlobalContext = React.createContext()
@@ -15,7 +15,7 @@ export const GlobalProvider = ({children}) => {
 
     //calculate incomes
     const addIncome = async (income) => {
-        const response = await axios.post(`${BASE_URL}add-income`, income)
+        const response = await axios.post(`${BASE_URL}income`, income)
             .catch((err) =>{
                 setError(err.response.data.message)
             })
@@ -23,7 +23,7 @@ export const GlobalProvider = ({children}) => {
     }
 
     const getIncomes = async () => {
-        const response = await axios.get(`${BASE_URL}get-incomes`)
+        const response = await axios.get(`${BASE_URL}income`)
         setIncomes(response.data)
         console.log(response.data)
     }
@@ -35,15 +35,12 @@ export const GlobalProvider = ({children}) => {
 
     const totalIncome = () => {
         let totalIncome = 0;
-        incomes.forEach((income) =>{
-            totalIncome = totalIncome + income.amount
-        })
-
-        return totalIncome;
+        incomes.forEach((income) => {
+            totalIncome += parseFloat(income.amount); 
+        });
+        return totalIncome.toFixed(2); 
     }
 
-
-    //calculate incomes
     const addExpense = async (income) => {
         const response = await axios.post(`${BASE_URL}add-expense`, income)
             .catch((err) =>{

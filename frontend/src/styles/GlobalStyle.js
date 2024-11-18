@@ -18,16 +18,16 @@ export const GlobalStyle = createGlobalStyle`
         --color-delete: #FF0000;
     }
 
-    html, body {
+     body {
         margin: 0;
         padding: 0;
         height: 100%;
         width: 100%;
-        font-family: 'Nunito', sans-serif;
-        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        font-family: 'Merriweather', serif;
+        font-size: 1.2rem;
         background-color: #f0f2f5; 
         color: rgba(34, 34, 96, 0.6);
-        overflow: hidden;
+        
     }
 
     #root {

@@ -22,6 +22,10 @@ function Form() {
     const handleInput = name => e => {
         setInputState({...inputState, [name]: e.target.value})
         setError('')
+
+        if (name === 'category') {
+            console.log('Selected category:', e.target.value)
+        }
     }
 
     const handleSubmit = e => {
@@ -39,7 +43,7 @@ function Form() {
     return (
         <FormStyled onSubmit={handleSubmit}>
             {error && <p className='error'>{error}</p>}
-            <div className="input-control">
+            <div className="input-control ">
                 <input 
                     type="text" 
                     value={title}
