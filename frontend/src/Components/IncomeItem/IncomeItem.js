@@ -1,23 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 import { dateFormat } from '../../utils/dateFormat';
-import { bitcoin, book, calender, card, circle, clothing, comment, dollar, food, freelance, medical, money, piggy, stocks, takeaway, trash, tv, users, yt } from '../../utils/Icons';
+import { bitcoin, book, calender, card, circle, clothing, comment, dollar, food, freelance, medical, money, piggy, stocks, takeaway, transactions, trash, tv, users, yt } from '../../utils/Icons';
 import Button from '../Button/Button';
 
 function IncomeItem({
-    id,
+    transaction_id,
     title,
     amount,
     date,
-    category,
+    category_id,
     description,
     deleteItem,
     indicatorColor,
-    type
+    expense
 }) {
+    console.log(transaction_id, title, amount, date, category_id, description, deleteItem, indicatorColor, expense);
 
     const categoryIcon = () =>{
-        switch(category) {
+        switch(category_id) {
             case 'salary':
                 return money;
             case 'freelancing':
@@ -40,34 +41,35 @@ function IncomeItem({
     }
 
     const expenseCatIcon = () => {
-        switch (category) {
-            case 'education':
+        switch (category_id) {
+            case 6:
                 return book;
-            case 'groceries':
+            case 7:
                 return food;
-            case 'health':
+            case 8:
                 return medical;
-            case 'subscriptions':
+            case 10:
                 return tv;
-            case 'takeaways':
+            case 12:
                 return takeaway;
-            case 'clothing':
+            case 13:
                 return clothing;
-            case 'travelling':
+            case 14:
                 return freelance;
-            case 'other':
+            case 15:
                 return circle;
             default:
                 return ''
         }
     }
 
-    console.log('type', type)
+    console.log('expense', expense)
+    
 
     return (
         <IncomeItemStyled indicator={indicatorColor}>
             <div className="icon">
-                {type === 'expense' ? expenseCatIcon() : categoryIcon()}
+                {expense == true ? expenseCatIcon() : categoryIcon()}
             </div>
             <div className="content">
                 <h5>{title}</h5>
@@ -89,7 +91,7 @@ function IncomeItem({
                             color={'#fff'}
                             iColor={'#fff'}
                             hColor={'var(--color-green)'}
-                            onClick={() => deleteItem(id)}
+                            onClick={() => deleteItem(transaction_id,)}
                         />
                     </div>
                 </div>

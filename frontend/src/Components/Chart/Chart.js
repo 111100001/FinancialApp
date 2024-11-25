@@ -29,37 +29,39 @@ ChartJs.register(
 function Chart() {
     const {incomes, expenses} = useGlobalContext()
 
+    // Function to parse and format dates
+    const parseDate = (dateString) => new Date(dateString);
+
+    // Sort incomes and expenses by date
+    const sortedIncomes = [...incomes].sort((a, b) => parseDate(a.date) - parseDate(b.date));
+    const sortedExpenses = [...expenses].sort((a, b) => parseDate(a.date) - parseDate(b.date));
+
     const data = {
-        labels: incomes.map((inc) =>{
-            const {date} = inc
-            return dateFormat(date)
+        labels: sortedIncomes.map((inc) => {
+            const { date } = inc;
+            return dateFormat(date);
         }),
         datasets: [
             {
-                label: 'Income',
-                data: [
-                    ...incomes.map((income) => {
-                        const {amount} = income
-                        return amount
-                    })
-                ],
+                label: 'Incomes',
+                data: sortedIncomes.map((income) => {
+                    const { amount } = income;
+                    return parseFloat(amount); // Ensure the amount is a number
+                }),
                 backgroundColor: 'green',
-                tension: .2
+                tension: 0.2
             },
             {
                 label: 'Expenses',
-                data: [
-                    ...expenses.map((expense) => {
-                        const {amount} = expense
-                        return amount
-                    })
-                ],
+                data: sortedExpenses.map((expense) => {
+                    const { amount } = expense;
+                    return parseFloat(amount); // Ensure the amount is a number
+                }),
                 backgroundColor: 'red',
-                tension: .2
+                tension: 0.2
             }
         ]
     }
-
 
     return (
         <ChartStyled >

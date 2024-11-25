@@ -29,6 +29,10 @@ function Form() {
     }
 
     const handleSubmit = e => {
+        if (!title || !amount || !date || !category || !description) {
+            alert('All fields must be filled out');
+            return;
+        }
         e.preventDefault()
         addIncome(inputState)
         setInputState({

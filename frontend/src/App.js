@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Navigation from './Components/Navigation/Navigation';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Income from './Components/Income/Income';
+import Expenses from './Components/Expenses/Expenses';
+
 import { MainLayout } from './styles/Layouts'; 
 import { useGlobalContext } from './context/globalContext';
 
@@ -28,6 +30,7 @@ function App() {
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/income" element={<Income />} />
+            <Route path="/expense" element={<Expenses />} />
             <Route path="/" element={<Dashboard />} />
           </Routes>
         </MainLayout>
