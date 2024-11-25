@@ -19,21 +19,21 @@ function IncomeItem({
 
     const categoryIcon = () =>{
         switch(category_id) {
-            case 1:
+            case 'salary':
                 return money;
-            case 2:
+            case 'freelancing':
                 return freelance
-            case 3:
+            case 'investments':
                 return stocks;
-            case 4:
+            case 'stocks':
                 return users;
-            case 5:
+            case 'bitcoin':
                 return bitcoin;
-            case 16:
+            case 'bank':
                 return card;
-            case 17:
+            case 'youtube':
                 return yt;
-            case 18:
+            case 'other':
                 return piggy;
             default:
                 return ''
