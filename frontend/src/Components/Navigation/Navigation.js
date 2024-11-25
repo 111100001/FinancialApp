@@ -2,11 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { signout } from '../../utils/Icons'
+import logo from '../../utils/logo.png'; 
 
 function Navigation() {
   return (
     <NavStyled>
-      <h2>Financy</h2>
+      <div className="logo-container">
+        <img src={logo} alt="Logo" className="logo" />
+        <h2>Financy</h2>
+        
+      </div>
       <ul>
         <li>
           <Link to="/dashboard">Dashboard</Link>
@@ -34,11 +39,26 @@ const NavStyled = styled.nav`
   top: 0;
   height: 100vh; 
   width: 250px; 
-  background-color: #f8f9fa; /* Sidebar color */
+  background-color: #f8f9fa; 
   padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  .logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .logo {
+    width: 100px; 
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .user-name {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 5px;
+  }
+
   
 
   .user-info {

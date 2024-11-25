@@ -63,7 +63,7 @@ export const GlobalProvider = ({children}) => {
         try {
           const res = await axios.delete(`${BASE_URL}delete-expense/${transaction_id}`);
           console.log(res.data.message);
-          getExpenses(); // Refresh the list of expenses
+          getExpenses(); 
         } catch (error) {
           console.error('Error deleting expense:', error);
           alert('Error deleting expense');
@@ -83,7 +83,7 @@ export const GlobalProvider = ({children}) => {
         expenses.forEach((expense) => {
             totalExpenses += parseFloat(expense.amount); 
         });  
-        return totalExpenses.toFixed(2); // Return the total as a string with 2 decimal places
+        return totalExpenses.toFixed(2); 
     }
 
     const totalBalance = () => {
