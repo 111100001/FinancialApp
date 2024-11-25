@@ -36,7 +36,7 @@ function Dashboard() {
                             </div>
                             <div className="balance">
                                 <h2>Total Balance</h2>
-                                <p>
+                                <p style={{ color: totalBalance() < 0 ? 'red' : 'green' }}>
                                     {dollar} {totalBalance()}
                                 </p>
                             </div>
@@ -94,6 +94,24 @@ const DashboardStyled = styled.div`
                     p{
                         font-size: 3.5rem;
                         font-weight: 700;
+                    }
+                }
+                .expense{
+                    justify-content: center;
+                    align-items: center;
+                    p{
+                        color: var(--color-red);
+                        opacity: 0.6;
+                        font-size: 4.5rem;
+                    }
+                }
+                .income{
+                    justify-content: center;
+                    align-items: center;
+                    p{
+                        color: var(--color-green);
+                        opacity: 0.6;
+                        font-size: 4.5rem;
                     }
                 }
 

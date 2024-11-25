@@ -14,6 +14,9 @@ function Navigation() {
         <li>
           <Link to="/income">Incomes</Link>
         </li>
+        <li>
+          <Link to="/expense">Expenses</Link>
+        </li>
       </ul>
       <div className="bottom-nav">
                 <li>
