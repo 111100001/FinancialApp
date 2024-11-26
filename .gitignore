@@ -1,1 +1,3 @@
 frontend/node_modules/
+backend/financial-api/node_modules
+backend/financial-api/.vscode
